@@ -1,9 +1,9 @@
-name: Multi Job Workflow      # ワークフローの名前
-on: [push, workflow_dispatch] # 実行のトリガー（Push時と手動実行）
+name: Parallel Job Workflow   # 並列実行用のワークフロー
+on: [push, workflow_dispatch]
 
 jobs:
   job1:                       # 1つ目のジョブ
-    runs-on: ubuntu-latest    # 実行する仮想マシンのOS
+    runs-on: ubuntu-latest
     steps:
       - run: echo "ジョブ1を実行中..."
       - run: sleep 15         # 動きを確認しやすくするため、15秒待機する
