@@ -1,0 +1,15 @@
+name: Multi Job Workflow      # ワークフローの名前
+on: [push, workflow_dispatch] # 実行のトリガー（Push時と手動実行）
+
+jobs:
+  job1:                       # 1つ目のジョブ
+    runs-on: ubuntu-latest    # 実行する仮想マシンのOS
+    steps:
+      - run: echo "ジョブ1を実行中..."
+      - run: sleep 15         # 動きを確認しやすくするため、15秒待機する
+
+  job2:                       # 2つ目のジョブ（needsがないため、job1と同時に開始される）
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "ジョブ2を実行中..."
+      - run: sleep 15         # こちらも15秒待機する
